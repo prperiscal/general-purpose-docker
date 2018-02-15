@@ -1,2 +1,4 @@
 # mytasks-docker
-Docker Compose to run myTasks enviroment
+Docker Compose to run myTasks environment
+
+
