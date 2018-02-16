@@ -32,7 +32,7 @@ EOF
 
 start(){
 	echo "Reading environment vars..."
-	. ./loadEnvironmentVars.sh
+	loadEnv
 
 	if [ $# -lt 1 ]; then
               startAll
@@ -65,7 +65,7 @@ startAll(){
 
 stop(){
 	echo "Reading environment vars..."
-	. ./loadEnvironmentVars.sh
+	loadEnv
 
 	if [ $# -lt 1 ]; then
               stopAll
@@ -130,6 +130,19 @@ stopService(){
 		shift
 	    fi
 	done
+}
+
+loadEnv(){
+#Load all environment variables
+	while IFS='' read -r line || [[ -n "$line" ]]; do
+	    if [[ $line =~ [^[:space:]] ]]
+	    then
+	     if ! [[ "$line" == "#"* ]]
+	       then
+		export "$line"
+		fi
+	     fi
+	done < "./.env"
 }
 
 close(){
