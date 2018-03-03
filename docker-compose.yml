@@ -1,17 +1,33 @@
 version: '2.0'
 services:
+  eureka-service:
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx512m
+      SERVER_PORT: '8080'
+    image: quay.io/prperiscal/general-purpose-eureka:$VERSION_EUREKA
+    ports:
+    - 8761:8080
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass
+    ports:
+    - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 54321:8080
+
   oauth-service:
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: $EUREKA_URL
       JAVA_TOOL_OPTIONS: -Xmx256m -Deureka.instance.preferIpAddress=false -Deureka.instance.nonSecurePort=50000
       SERVER_PORT: '8080'
-    image: quay.io/prperiscal/mytasks-oauth-service:$VERSION_OAUTH_SERVICE
+    image: quay.io/prperiscal/general-purpose-oauth-service:$VERSION_OAUTH_SERVICE
     ports:
     - 50000:8080
-  eureka-service:
-    environment:
-      JAVA_TOOL_OPTIONS: -Xmx512m
-      SERVER_PORT: '8080'
-    image: quay.io/prperiscal/mytasks-eureka:$VERSION_EUREKA
-    ports:
-    - 8761:8080
+
