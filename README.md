@@ -90,4 +90,12 @@ To make it work, only three steps are need:
 
 Take into account that the service name set inside the docker-compose MUST be equal to the name added in the __.env__
 
- 
+## Authors
+
+* **Pablo Rey Periscal** - *Initial work* -
+
+See also the list of [contributors]() who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
