@@ -74,7 +74,7 @@ generalPurposeDocker -st
 * Remove eureka service:
 This will stop and remove the container
 ```
-generalPurposeDocker -rm eurka
+generalPurposeDocker -rm eureka
 ```
 
 ## Include new services
