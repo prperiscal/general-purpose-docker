@@ -16,10 +16,10 @@ EOF
 
 help(){
 	cat << "EOF"
-Script to control mytask docker environment
+Script to control the general purpose docker environment
 
 Usage:
-    myTasksDocker <command> [<service> ...]
+    generalPurposeDocker <command> [<service> ...]
 
 Commands:
     --help -h		-- Show this help
